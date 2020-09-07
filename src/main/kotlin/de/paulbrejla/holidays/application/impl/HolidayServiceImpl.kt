@@ -13,8 +13,9 @@ import org.springframework.scheduling.annotation.Scheduled
 import org.springframework.stereotype.Component
 
 @Component
-class HolidayServiceImpl @Autowired constructor(val calendarLoader: CalendarLoader,
-                                                val holidayRepository: HolidayRepository) : HolidayService {
+class HolidayServiceImpl(val calendarLoader: CalendarLoader,
+                         val holidayRepository: HolidayRepository) : HolidayService {
+
     override fun findHolidays(forState: State, andYear: Int): List<HolidayDto> {
 
         return holidayRepository.findAllByStateCodeAndYear(stateCode = forState, year = andYear).map {

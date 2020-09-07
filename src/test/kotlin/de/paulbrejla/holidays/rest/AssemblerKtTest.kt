@@ -13,7 +13,7 @@ class AssemblerKtTest {
     fun `a HolidayDto is assembled from a Holiday`() {
         // Given
         val holiday = Holiday(id = 1, stateCode = State.HB, year = 2020, summary = "Winterferien Bremen",
-        start = LocalDateTime.now(), end = LocalDateTime.now().plusYears(2), slug = "ferien-hb")
+                start = LocalDateTime.now(), end = LocalDateTime.now().plusYears(2), slug = "ferien-hb")
 
         // When
         val holidayDto = assembleHolidayDto(holiday)
