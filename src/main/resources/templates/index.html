@@ -19,6 +19,7 @@
           th:href="@{/webjars/foundation/6.3.1/dist/css/foundation.min.css}" async="true"/>
     <link rel="stylesheet" type="text/css" media="all"
           th:href="@{/webjars/foundation/6.3.1/dist/css/foundation-flex.min.css}" async="true"/>
+    <script src="https://unpkg.com/ionicons@5.1.2/dist/ionicons.js"></script>
 
 </head>
 <body>
@@ -28,12 +29,18 @@
         <h1 class="text-center">Deutsche Ferientermine</h1>
         <h4 class="text-center">Via JSON -und XML-Schnittstelle</h4>
         <ul class="menu align-center simple">
-            <li><a href="#helloWorld">Hello World</a></li>
-            <li><a href="#holidaysPerState">Ferien Nach Bundesland</a></li>
-            <li><a href="#holidaysPerStateAndYear">Ferien Nach Bundesland und Jahr</a></li>
-            <li><a href="#reference">Referenz</a></li>
-            <li><a href="#help">Mithelfen</a></li>
-            <li><a href="#kontakt-feedback">Kontakt</a></li>
+            <li><a href="#helloWorld"><span class="icon"><ion-icon name="heart"></ion-icon></span> Hello World</a></li>
+            <li><a href="#holidaysPerState"><span class="icon"><ion-icon name="trail-sign"></ion-icon></span> Ferien Nach Bundesland</a></li>
+            <li><a href="#holidaysPerStateAndYear"><span class="icon"><ion-icon name="trail-sign"></ion-icon></span> Ferien Nach Bundesland und Jahr</a></li>
+            <li><a href="#reference">
+                <span class="icon"><ion-icon name="code-slash"></ion-icon></span>
+                Referenz</a></li>
+            <li><a href="#help">
+                <span class="icon"> <ion-icon name="logo-github"></ion-icon></span>
+                Mithelfen</a></li>
+            <li><a href="#kontakt-feedback">
+                <span class="icon"><ion-icon name="mail"></ion-icon></span>
+                Kontakt</a></li>
 
         </ul>
         <hr/>
@@ -213,7 +220,8 @@
         <h4 class="text-center" id="help">Mithelfen</h4>
         <p>
             Dieses Projekt ist unter der MIT License lizenziert.
-            Du findest den Quellcode auf GitHub unter <a href="https://github.com/paulbrejla/ferien-api">https://github.com/paulbrejla/ferien-api</a>. Dort kannst
+            Du findest den Quellcode auf GitHub unter <a href="https://github.com/paulbrejla/ferien-api">https://github.com/paulbrejla/ferien-api</a>.
+            Dort kannst
             du dich direkt an der Weiterentwicklung beteiligen.
         </p>
         <hr/>
@@ -275,6 +283,10 @@
     </div>
     <div class="columns"></div>
 </div>
-
+<style type="text/css">
+    .icon {
+        padding-right: 4px;
+    }
+</style>
 </body>
 </html>
