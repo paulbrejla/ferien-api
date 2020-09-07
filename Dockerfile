@@ -1,17 +1,14 @@
-FROM openjdk:12-alpine
+FROM openjdk:11-alpine
 
 ENV APP_HOME /usr/src/app
 ENV APP_NAME holidays-api
 
 WORKDIR $APP_HOME
 
+RUN wget https://download.newrelic.com/newrelic/java-agent/newrelic-agent/current/newrelic-java.zip -O newrelic.zip
 ADD . $APP_HOME
 
 RUN ./gradlew build
-RUN wget https://download.newrelic.com/newrelic/java-agent/newrelic-agent/current/newrelic-java.zip -O newrelic.zip
-RUN unzip newrelic.zip
-RUN cd newrelic
-RUN mv newrelic.jar ../ && mv newrelic.yml ../
 
 EXPOSE 80
 
