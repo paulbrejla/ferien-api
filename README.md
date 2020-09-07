@@ -51,10 +51,20 @@ git clone https://github.com/paulbrejla/ferien-api.git
 
 ### Build with Docker
 
+1. Build Docker Image
 ```sh
 docker build -t holidays-api .
 ```
 
+2. Tag Docker Image
+```sh
+docker tag holidays-api:latest remote-repo/holidays-api:latest 
+```
+
+3. Push Docker Image to remote repo
+```sh
+docker push remote-repo/holidays-api:latest 
+```
 
 <!-- LICENSE -->
 ### License
