@@ -30,8 +30,10 @@
         <h4 class="text-center">Via JSON -und XML-Schnittstelle</h4>
         <ul class="menu align-center simple">
             <li><a href="#helloWorld"><span class="icon"><ion-icon name="heart"></ion-icon></span> Hello World</a></li>
-            <li><a href="#holidaysPerState"><span class="icon"><ion-icon name="trail-sign"></ion-icon></span> Ferien Nach Bundesland</a></li>
-            <li><a href="#holidaysPerStateAndYear"><span class="icon"><ion-icon name="trail-sign"></ion-icon></span> Ferien Nach Bundesland und Jahr</a></li>
+            <li><a href="#holidaysPerState"><span class="icon"><ion-icon name="trail-sign"></ion-icon></span> Ferien
+                Nach Bundesland</a></li>
+            <li><a href="#holidaysPerStateAndYear"><span class="icon"><ion-icon name="trail-sign"></ion-icon></span>
+                Ferien Nach Bundesland und Jahr</a></li>
             <li><a href="#reference">
                 <span class="icon"><ion-icon name="code-slash"></ion-icon></span>
                 Referenz</a></li>
@@ -70,10 +72,13 @@
 
         <h5 id="helloWorld">Hello World</h5>
         <p>
-            Die Schnittstelle ist unter <code>https://ferien-api.de/api/v1/holidays</code> erreichbar. Um alle kommenden
-            Ferientermine für alle Bundesländer zu erhalten,
-            starte wie folgt:
-
+            Die Schnittstelle ist unter <code>https://ferien-api.de/api/v1/holidays</code> erreichbar.
+            Du kannst die API direkt über Swagger / OpenAPI ausprobieren: <a href="/swagger-ui/#/">Swagger / OpenAPI</a>.
+            Dort kannst du dir auch
+            für die Sprache und das Framework Deiner Wahl Client SDKs generieren.
+        </p>
+        <p>
+            Um alle kommenden Ferientermine für alle Bundesländer zu erhalten, starte wie folgt:
         <pre>
         $ curl https://ferien-api.de/api/v1/holidays
 

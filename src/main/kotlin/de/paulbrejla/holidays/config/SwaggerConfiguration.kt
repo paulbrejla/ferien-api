@@ -17,7 +17,7 @@ class SwaggerConfiguration {
     fun api(): Docket? {
         return Docket(DocumentationType.SWAGGER_2)
                 .select()
-                .apis(RequestHandlerSelectors.any())
+                .apis(RequestHandlerSelectors.basePackage("de.paulbrejla.holidays.rest"))
                 .paths(PathSelectors.any())
                 .build()
     }
