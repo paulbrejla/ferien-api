@@ -48,3 +48,12 @@ git clone https://github.com/paulbrejla/ferien-api.git
 ```sh
 ./gradlew bootRun
 ```
+
+<!-- LICENSE -->
+### License
+Distributed under the MIT License. See LICENSE for more information.
+
+### Contact
+Paul Brejla - paul(at)paulbrejla.com
+
+Project Link: https://github.com/paulbrejla/ferien-api
