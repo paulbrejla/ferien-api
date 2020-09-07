@@ -1,0 +1,67 @@
+buildscript {
+	ext {
+		kotlinVersion = '1.2.41'
+		springBootVersion = '1.5.12.RELEASE'
+	}
+	repositories {
+		mavenCentral()
+	}
+	dependencies {
+		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+		classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:${kotlinVersion}")
+		classpath("org.jetbrains.kotlin:kotlin-allopen:${kotlinVersion}")
+		classpath "org.jetbrains.kotlin:kotlin-noarg:${kotlinVersion}"
+	}
+}
+
+apply plugin: 'kotlin'
+apply plugin: 'kotlin-spring'
+apply plugin: 'kotlin-noarg'
+apply plugin: 'kotlin-jpa'
+apply plugin: "kotlin-allopen"
+apply plugin: 'org.springframework.boot'
+
+group = 'de.paulbrejla'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = 1.8
+compileKotlin {
+	kotlinOptions.jvmTarget = "1.8"
+}
+compileTestKotlin {
+	kotlinOptions.jvmTarget = "1.8"
+}
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	compile('org.springframework.boot:spring-boot-starter-web')
+	compile("org.springframework.boot:spring-boot-starter-jetty")
+	compile("org.springframework.boot:spring-boot-starter-thymeleaf")
+	compile("org.jetbrains.kotlin:kotlin-stdlib-jre8:${kotlinVersion}")
+	compile("org.jetbrains.kotlin:kotlin-reflect:${kotlinVersion}")
+	compile 'net.sf.biweekly:biweekly:0.6.1'
+	compile group: 'commons-io', name: 'commons-io', version: '2.4'
+	compile("org.springframework.boot:spring-boot-starter-data-jpa")
+	compile("com.h2database:h2")
+	compile group: 'org.hibernate', name: 'hibernate-java8', version: '5.1.0.Final'
+	compile("org.springframework.boot:spring-boot-devtools")
+
+	// Foundation
+	compile 'org.webjars:foundation:6.3.1'
+
+	testCompile('org.springframework.boot:spring-boot-starter-test')
+}
+
+
+noArg {
+	annotation("de.paulbrejla.holidays.domain.NoArg")
+}
+
+allOpen {
+	annotation("de.paulbrejla.holidays.domain.AllOpen")
+}
+configurations {
+	compile.exclude module: "spring-boot-starter-tomcat"
+}

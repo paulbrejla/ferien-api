@@ -1,0 +1,9 @@
+spring:
+ application:
+    name: holidays-api
+ h2:
+    console:
+      enabled: false
+      path: /h2-console
+server:
+  port: 80
