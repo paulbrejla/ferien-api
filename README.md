@@ -49,6 +49,13 @@ git clone https://github.com/paulbrejla/ferien-api.git
 ./gradlew bootRun
 ```
 
+### Build with Docker
+
+```sh
+docker build -t holidays-api .
+```
+
+
 <!-- LICENSE -->
 ### License
 Distributed under the MIT License. See LICENSE for more information.
