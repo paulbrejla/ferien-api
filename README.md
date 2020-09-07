@@ -20,6 +20,11 @@
 
 ![screenshot](product.png "ferien-api.de")
 
+<!-- BUILT WITH -->
+### Built With
+This project is built with Spring Boot and Kotlin, using an embedded h2 database
+as its data store.
+
 <!-- GETTING STARTED -->
 ## Getting Started
 
