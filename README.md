@@ -32,7 +32,9 @@ To get a local copy up and running follow these simple steps.
 git clone https://github.com/paulbrejla/ferien-api.git
 ```
 
-2. Run 
+2. Add _.ics_ calendar files to _/main/resources/holidays_
+
+3. Run 
 ```sh
 ./gradlew bootRun
 ```
