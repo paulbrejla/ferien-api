@@ -18,7 +18,7 @@
 
 
 <!-- ABOUT THE PROJECT -->
-## About The Project
+## About
 
 ![screenshot](product.png "ferien-api.de")
 
