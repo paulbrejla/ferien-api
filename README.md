@@ -1,4 +1,4 @@
-[![ferien-api](https://circleci.com/gh/paulbrejla/ferien-api.svg?style=shield)](https://app.circleci.com/pipelines/github/paulbrejla/ferien-api)
+ [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) [![ferien-api](https://circleci.com/gh/paulbrejla/ferien-api.svg?style=shield)](https://app.circleci.com/pipelines/github/paulbrejla/ferien-api)
 
 <!-- TABLE OF CONTENTS -->
 ## ferien-api.de
