@@ -35,8 +35,8 @@ class HolidayServiceImpl @Autowired constructor(val calendarLoader: CalendarLoad
     @Scheduled(fixedRate = 900000, initialDelay = 15000)
     override fun loadHolidays() {
         calendarLoader.loadCalendarFiles().forEach { (state, calendars) ->
-            calendars.forEach {it.events.forEach { it : VEvent ->
-                val holiday = assembleHoliday(it, state)
+            calendars.forEach {it.events.forEach { vEvent : VEvent ->
+                val holiday = assembleHoliday(vEvent, state)
                 if(holidayRepository.findOneBySummaryAndStateCodeAndYear(summary = holiday.summary, stateCode = holiday.stateCode, year = holiday.year) == null) {
                     holidayRepository.save(holiday)
                 }

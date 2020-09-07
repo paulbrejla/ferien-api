@@ -12,8 +12,7 @@ import org.springframework.web.bind.annotation.RestController
 class HolidayWsV1Impl @Autowired constructor(val holidayService: HolidayService) : HolidayWsV1 {
 
     override fun getHolidaysForState(@PathVariable("state") state: State): List<HolidayDto> {
-
-    return holidayService.findHolidays(forState = state)
+        return holidayService.findHolidays(forState = state)
     }
 
     override fun getHolidays(): List<HolidayDto> {
@@ -22,7 +21,6 @@ class HolidayWsV1Impl @Autowired constructor(val holidayService: HolidayService)
 
     override fun getHolidaysForStateAndYear(@PathVariable("state") state: State, @PathVariable("year") year: Int): List<HolidayDto> {
         return holidayService.findHolidays(forState = state, andYear = year)
-
     }
 
 }
