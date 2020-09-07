@@ -1,3 +1,5 @@
+[![ferien-api](https://circleci.com/gh/paulbrejla/ferien-api.svg?style=shield)](https://app.circleci.com/pipelines/github/paulbrejla/ferien-api)
+
 <!-- TABLE OF CONTENTS -->
 ## ferien-api.de
 
