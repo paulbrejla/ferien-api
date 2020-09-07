@@ -1,7 +1,7 @@
 buildscript {
 	ext {
-		kotlinVersion = '1.2.41'
-		springBootVersion = '1.5.12.RELEASE'
+		kotlinVersion = '1.4.0'
+		springBootVersion = '2.3.3.RELEASE'
 	}
 	repositories {
 		mavenCentral()
@@ -36,22 +36,22 @@ repositories {
 }
 
 dependencies {
-	compile('org.springframework.boot:spring-boot-starter-web')
-	compile("org.springframework.boot:spring-boot-starter-jetty")
-	compile("org.springframework.boot:spring-boot-starter-thymeleaf")
-	compile("org.jetbrains.kotlin:kotlin-stdlib-jre8:${kotlinVersion}")
+	compile("org.springframework.boot:spring-boot-starter-web:${springBootVersion}")
+	compile("org.springframework.boot:spring-boot-starter-jetty:${springBootVersion}")
+	compile("org.springframework.boot:spring-boot-starter-thymeleaf:${springBootVersion}")
+	compile("org.jetbrains.kotlin:kotlin-stdlib-jdk8:${kotlinVersion}")
 	compile("org.jetbrains.kotlin:kotlin-reflect:${kotlinVersion}")
 	compile 'net.sf.biweekly:biweekly:0.6.1'
 	compile group: 'commons-io', name: 'commons-io', version: '2.4'
-	compile("org.springframework.boot:spring-boot-starter-data-jpa")
-	compile("com.h2database:h2")
+	compile("org.springframework.boot:spring-boot-starter-data-jpa:${springBootVersion}")
+	compile("com.h2database:h2:1.4.200")
 	compile group: 'org.hibernate', name: 'hibernate-java8', version: '5.1.0.Final'
-	compile("org.springframework.boot:spring-boot-devtools")
+	compile("org.springframework.boot:spring-boot-devtools:${springBootVersion}")
 
 	// Foundation
 	compile 'org.webjars:foundation:6.3.1'
 
-	testCompile('org.springframework.boot:spring-boot-starter-test')
+	testCompile("org.springframework.boot:spring-boot-starter-test:${springBootVersion}")
 }
 
 noArg {
