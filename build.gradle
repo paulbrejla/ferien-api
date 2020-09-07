@@ -47,6 +47,8 @@ dependencies {
 	compile("com.h2database:h2:1.4.200")
 	compile group: 'org.hibernate', name: 'hibernate-java8', version: '5.1.0.Final'
 	compile("org.springframework.boot:spring-boot-devtools:${springBootVersion}")
+	compile("io.springfox:springfox-boot-starter:3.0.0")
+	compile("io.springfox:springfox-swagger-ui:2.9.2")
 
 	// Foundation
 	compile 'org.webjars:foundation:6.3.1'

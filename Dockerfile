@@ -4,8 +4,6 @@ ENV APP_HOME /usr/src/app
 ENV APP_NAME holidays-api
 
 WORKDIR $APP_HOME
-
-RUN wget https://download.newrelic.com/newrelic/java-agent/newrelic-agent/current/newrelic-java.zip -O newrelic.zip
 ADD . $APP_HOME
 
 RUN ./gradlew build
