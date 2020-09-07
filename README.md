@@ -33,6 +33,11 @@ git clone https://github.com/paulbrejla/ferien-api.git
 ```
 
 2. Add _.ics_ calendar files to _/main/resources/holidays_
+ - Filenames need to conform to the following format:
+   ```
+   ferien_{state}.ics
+   e.g. ferien_Bremen.ics
+   ```
 
 3. Run 
 ```sh
