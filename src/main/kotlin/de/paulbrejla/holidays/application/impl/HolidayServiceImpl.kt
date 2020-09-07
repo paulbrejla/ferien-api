@@ -15,32 +15,34 @@ import org.springframework.stereotype.Component
 @Component
 class HolidayServiceImpl @Autowired constructor(val calendarLoader: CalendarLoader,
                                                 val holidayRepository: HolidayRepository) : HolidayService {
-    override fun findHolidays(forState: State,  andYear: Int): List<HolidayDto> {
+    override fun findHolidays(forState: State, andYear: Int): List<HolidayDto> {
 
         return holidayRepository.findAllByStateCodeAndYear(stateCode = forState, year = andYear).map {
             assembleHolidayDto(it)
         }
     }
 
-    override fun findHolidays() : List<HolidayDto> {
-        return holidayRepository.findAll().map{
+    override fun findHolidays(): List<HolidayDto> {
+        return holidayRepository.findAll().map {
             assembleHolidayDto(it)
         }
     }
 
-    override fun findHolidays(forState: State) : List<HolidayDto> {
+    override fun findHolidays(forState: State): List<HolidayDto> {
         return holidayRepository.findAllByStateCode(forState).map { assembleHolidayDto(it) }
     }
 
     @Scheduled(fixedRate = 900000, initialDelay = 15000)
     override fun loadHolidays() {
         calendarLoader.loadCalendarFiles().forEach { (state, calendars) ->
-            calendars.forEach {it.events.forEach { vEvent : VEvent ->
-                val holiday = assembleHoliday(vEvent, state)
-                if(holidayRepository.findOneBySummaryAndStateCodeAndYear(summary = holiday.summary, stateCode = holiday.stateCode, year = holiday.year) == null) {
-                    holidayRepository.save(holiday)
+            calendars.forEach {
+                it.events.forEach { vEvent: VEvent ->
+                    val holiday = assembleHoliday(vEvent, state)
+                    if (holidayRepository.findOneBySummaryAndStateCodeAndYear(summary = holiday.summary, stateCode = holiday.stateCode, year = holiday.year) == null) {
+                        holidayRepository.save(holiday)
+                    }
                 }
-            } }
+            }
         }
     }
 }
