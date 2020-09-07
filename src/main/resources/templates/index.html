@@ -5,7 +5,10 @@
     <script async="true" src="https://www.googletagmanager.com/gtag/js?id=UA-51355950-1"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments)};
+
+        function gtag() {
+            dataLayer.push(arguments)
+        };
         gtag('js', new Date());
 
         gtag('config', 'UA-51355950-1');
@@ -29,33 +32,40 @@
             <li><a href="#holidaysPerState">Ferien Nach Bundesland</a></li>
             <li><a href="#holidaysPerStateAndYear">Ferien Nach Bundesland und Jahr</a></li>
             <li><a href="#reference">Referenz</a></li>
+            <li><a href="#help">Mithelfen</a></li>
             <li><a href="#kontakt-feedback">Kontakt</a></li>
 
         </ul>
         <hr/>
-        <p>Im Rahmen eines Projektes benötigte ich einen einfachen Zugriff auf deutsche Ferientermine über eine einfach zu benutzende JSON-Schnittstelle.
-            Abgesehen von <a href="https://feiertage.jarmedia.de/">Feiertagen</a> bin bin ich leider nicht fündig geworden.
+        <p>Im Rahmen eines Projektes benötigte ich einen einfachen Zugriff auf deutsche Ferientermine über eine einfach
+            zu benutzende JSON-Schnittstelle.
+            Abgesehen von <a href="https://feiertage.jarmedia.de/">Feiertagen</a> bin bin ich leider nicht fündig
+            geworden.
         </p>
-<p>Um für meine Projekte dieses Problem zu lösen, habe ich den Ferien-Webservice entwickelt. Diese stellt für alle deutschen Bundesländer die Ferientermine für die Jahre
-2017, 2018 und 2019 über eine API als XML oder JSON zur Verfügung.</p>
+        <p>Um für meine Projekte dieses Problem zu lösen, habe ich den Ferien-Webservice entwickelt. Diese stellt für
+            alle deutschen Bundesländer die Ferientermine für die Jahre
+            2017, 2018 und 2019 über eine API als XML oder JSON zur Verfügung.</p>
 
 
         <h4 class="">Verwendung</h4>
-        <p>Die Benutzung ist für private und kommerzielle Zwecke kostenfrei. Sämtliche Datumsangaben sind ohne Gewähr. Wenn die Schnittstelle für dich nützlich ist, freue ich mich aber über eine Spende für einen Kaffee.
+        <p>Die Benutzung ist für private und kommerzielle Zwecke kostenfrei. Sämtliche Datumsangaben sind ohne Gewähr.
+            Wenn die Schnittstelle für dich nützlich ist, freue ich mich aber über eine Spende für einen Kaffee.
         <div class="text-center">
-        <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
-            <input type="hidden" name="cmd" value="_s-xclick"/>
-            <input type="hidden" name="hosted_button_id" value="2B2RDRFYN6WDG"/>
-            <input type="image" src="https://www.paypalobjects.com/de_DE/DE/i/btn/btn_donateCC_LG.gif" border="0" name="submit" alt="Jetzt einfach, schnell und sicher online bezahlen – mit PayPal."/>
-            <img alt="" border="0" src="https://www.paypalobjects.com/de_DE/i/scr/pixel.gif" width="1" height="1"/>
-        </form>
-    </div>
+            <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+                <input type="hidden" name="cmd" value="_s-xclick"/>
+                <input type="hidden" name="hosted_button_id" value="2B2RDRFYN6WDG"/>
+                <input type="image" src="https://www.paypalobjects.com/de_DE/DE/i/btn/btn_donateCC_LG.gif" border="0"
+                       name="submit" alt="Jetzt einfach, schnell und sicher online bezahlen – mit PayPal."/>
+                <img alt="" border="0" src="https://www.paypalobjects.com/de_DE/i/scr/pixel.gif" width="1" height="1"/>
+            </form>
+        </div>
         </p>
 
         <h5 id="helloWorld">Hello World</h5>
         <p>
-        Die Schnittstelle ist unter <code>https://ferien-api.de/api/v1/holidays</code> erreichbar. Um alle kommenden Ferientermine für alle Bundesländer zu erhalten,
-        starte wie folgt:
+            Die Schnittstelle ist unter <code>https://ferien-api.de/api/v1/holidays</code> erreichbar. Um alle kommenden
+            Ferientermine für alle Bundesländer zu erhalten,
+            starte wie folgt:
 
         <pre>
         $ curl https://ferien-api.de/api/v1/holidays
@@ -75,7 +85,8 @@
 
         <h5 id="holidaysPerState">Ferientermine nach Bundesland</h5>
         <p>
-            Alle Ferientermine für ein Bundesland erhältst du über <code>https://ferien-api.de/api/v1/holidays/{stateCode}</code>, wobei <code>stateCode</code> dem zweistelligen Code des Bundeslandes entspricht.
+            Alle Ferientermine für ein Bundesland erhältst du über <code>https://ferien-api.de/api/v1/holidays/{stateCode}</code>,
+            wobei <code>stateCode</code> dem zweistelligen Code des Bundeslandes entspricht.
         <pre>
         $ curl https://ferien-api.de/api/v1/holidays/HB
 
@@ -98,7 +109,8 @@
            },..
         ]
        </pre>
-        Die möglichen Codes für die Bundesländer findest du zum Beispiel unter <a href="https://de.wikipedia.org/wiki/ISO_3166-2:DE">https://de.wikipedia.org/wiki/ISO_3166-2:DE</a>.
+        Die möglichen Codes für die Bundesländer findest du zum Beispiel unter <a
+            href="https://de.wikipedia.org/wiki/ISO_3166-2:DE">https://de.wikipedia.org/wiki/ISO_3166-2:DE</a>.
         </p>
 
         <h5 id="holidaysPerStateAndYear">Ferientermine nach Bundesland und Jahr</h5>
@@ -130,7 +142,8 @@
 
         <h5 id="reference">Rückgabewert &amp; Format</h5>
         <p>
-        Du kannst das Format der zurückgelieferten Daten ändern indem du einfach .json oder .xml an das Ende der URL anhängst.
+            Du kannst das Format der zurückgelieferten Daten ändern indem du einfach .json oder .xml an das Ende der URL
+            anhängst.
         <table>
             <thead>
             <tr>
@@ -182,7 +195,8 @@
             <tbody>
             <tr>
                 <td>StateCode</td>
-                <td>String (siehe <a href="https://de.wikipedia.org/wiki/ISO_3166-2:DE">https://de.wikipedia.org/wiki/ISO_3166-2:DE)</a></td>
+                <td>String (siehe <a href="https://de.wikipedia.org/wiki/ISO_3166-2:DE">https://de.wikipedia.org/wiki/ISO_3166-2:DE)</a>
+                </td>
                 <td>2</td>
 
             </tr>
@@ -195,9 +209,20 @@
         </table>
         </p>
         <hr/>
+        <h4 class="text-center" id="help">Mithelfen</h4>
+        <p>
+            Dieser Projekt ist unter der MIT License lizensiert.
+            Du findest den Quellcode auf GitHub unter <a href="https://github.com/paulbrejla/ferien-api">https://github.com/paulbrejla/ferien-api</a>. Dort kannst
+            du dich direkt an der Weiterentwicklung beteiligen.
+        </p>
+        <hr/>
         <h4 class="text-center" id="kontakt-feedback">Kontakt und Feedback</h4>
         <p> Die Ferien-Schnittstelle ist ein Projekt von <a href="http://www.paulbrejla.com">Paul Brejla</a>.
-            Bei Rückfragen kannst du weiter unten einen Kommentar hinterlassen oder mich unter paul(at)paulbrejla(punkt)com erreichen.
+            Für Featurewünsche oder Bugs kannst du gerne ein Issue oder einen Pull Request unter <a
+                    href="https://github.com/paulbrejla/ferien-api">https://github.com/paulbrejla/ferien-api</a>
+            eröffnen.
+            Bei Rückfragen kannst du weiter unten einen Kommentar hinterlassen oder mich unter
+            paul(at)paulbrejla(punkt)com erreichen.
         </p>
         <div class="row">
             <div class="columns">
@@ -211,9 +236,11 @@
             <div class="columns">
                 <dl>
                     <dt>LinkedIn</dt>
-                    <dd><a href="https://www.linkedin.com/in/paulbrejla/">https://www.linkedin.com/in/paulbrejla/</a></dd>
+                    <dd><a href="https://www.linkedin.com/in/paulbrejla/">https://www.linkedin.com/in/paulbrejla/</a>
+                    </dd>
                     <dt>Xing</dt>
-                    <dd><a href="https://www.xing.com/profile/Paul_Brejla">https://www.xing.com/profile/Paul_Brejla</a></dd>
+                    <dd><a href="https://www.xing.com/profile/Paul_Brejla">https://www.xing.com/profile/Paul_Brejla</a>
+                    </dd>
                     <dt>GitHub</dt>
                     <dd><a href="https://github.com/paulbrejla">https://github.com/paulbrejla</a></dd>
 
@@ -234,14 +261,15 @@
             this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
             };
             */
-            (function() { // DON'T EDIT BELOW THIS LINE
+            (function () { // DON'T EDIT BELOW THIS LINE
                 var d = document, s = d.createElement('script');
                 s.src = 'https://ferien-api.disqus.com/embed.js';
                 s.setAttribute('data-timestamp', +new Date());
                 (d.head || d.body).appendChild(s);
             })();
         </script>
-        <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+        <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by
+            Disqus.</a></noscript>
 
     </div>
     <div class="columns"></div>

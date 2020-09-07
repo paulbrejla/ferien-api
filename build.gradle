@@ -54,7 +54,6 @@ dependencies {
 	testCompile('org.springframework.boot:spring-boot-starter-test')
 }
 
-
 noArg {
 	annotation("de.paulbrejla.holidays.domain.NoArg")
 }
