@@ -1,7 +1,9 @@
  [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) [![ferien-api](https://circleci.com/gh/paulbrejla/ferien-api.svg?style=shield)](https://app.circleci.com/pipelines/github/paulbrejla/ferien-api)
 
+This is where the code for <a href="https://ferien-api.de">ferien-api.de</a> lives.
+
 <!-- TABLE OF CONTENTS -->
-## ferien-api.de
+## Table of Contents
 
 * [About the Project](#about-the-project)
   * [Built With](#built-with)
