@@ -19,7 +19,7 @@ class HolidayWsV1Impl @Autowired constructor(val holidayService: HolidayService)
     }
 
     override fun getHolidays(): List<HolidayDto> {
-        return handleApplicationCall{ holidayService.findHolidays() }
+        return handleApplicationCall { holidayService.findHolidays() }
     }
 
     override fun getHolidaysForStateAndYear(@PathVariable("state") state: State, @PathVariable("year") year: Int): List<HolidayDto> {
