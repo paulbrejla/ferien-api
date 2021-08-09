@@ -9,6 +9,10 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Get Version
+        run: echo "TAG=${GITHUB_REF/refs\/tags\//}" >> $GITHUB_ENV
+      - name: Show version tag
+        run: echo Building version ${{ env.TAG }}
       - uses: actions/checkout@v2
       - name: Set up JDK
         uses: actions/setup-java@v2
