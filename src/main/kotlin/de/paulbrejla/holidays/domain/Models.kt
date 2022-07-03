@@ -1,7 +1,7 @@
 package de.paulbrejla.holidays.domain
 
 import java.io.Serializable
-import java.time.LocalDateTime
+import java.time.LocalDate
 import javax.persistence.*
 
 
@@ -13,6 +13,6 @@ data class Holiday(@Id
                    @Enumerated(EnumType.STRING) var stateCode: State,
                    val year: Int,
                    var summary: String,
-                   var start: LocalDateTime,
-                   var end: LocalDateTime,
+                   var start: LocalDate,
+                   var end: LocalDate,
                    var slug: String) : Serializable

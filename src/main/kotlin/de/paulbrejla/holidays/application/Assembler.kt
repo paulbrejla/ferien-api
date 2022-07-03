@@ -13,8 +13,8 @@ import java.time.temporal.TemporalAccessor
 
 fun assembleHoliday(event: VEvent, state: String): Holiday = Holiday(id = 0, stateCode = assembleStateCode(state),
         summary = event.summary.value.toLowerCase(),
-        start = LocalDateTime.ofInstant(event.dateStart.value.toInstant(), ZoneOffset.UTC),
-        end = LocalDateTime.ofInstant(event.dateEnd.value.toInstant(), ZoneOffset.UTC),
+        start = LocalDateTime.ofInstant(event.dateStart.value.toInstant(), ZoneOffset.UTC).toLocalDate(),
+        end = LocalDateTime.ofInstant(event.dateEnd.value.toInstant(), ZoneOffset.UTC).toLocalDate(),
         year = event.dateStart.value.rawComponents.year,
         slug = assembleSlug(event.dateStart.value.rawComponents.year, event.summary.value, assembleStateCode(state)))
 
