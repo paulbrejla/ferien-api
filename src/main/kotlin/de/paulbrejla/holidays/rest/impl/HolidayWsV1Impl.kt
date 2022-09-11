@@ -5,11 +5,15 @@ import de.paulbrejla.holidays.domain.State
 import de.paulbrejla.holidays.rest.HolidayDto
 import de.paulbrejla.holidays.rest.api.HolidayWsV1
 import org.springframework.http.HttpStatus
+import org.springframework.web.bind.annotation.CrossOrigin
 import org.springframework.web.bind.annotation.PathVariable
+import org.springframework.web.bind.annotation.RequestMethod
 import org.springframework.web.bind.annotation.RestController
 import org.springframework.web.server.ResponseStatusException
 import java.lang.Exception
 
+
+@CrossOrigin(origins = ["*"], allowedHeaders = ["*"], methods = [RequestMethod.GET])
 @RestController
 class HolidayWsV1Impl(val holidayService: HolidayService) : HolidayWsV1 {
 
