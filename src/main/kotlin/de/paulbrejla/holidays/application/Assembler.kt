@@ -10,9 +10,10 @@ import de.paulbrejla.holidays.domain.Holiday
 import de.paulbrejla.holidays.domain.State
 import java.time.*
 import java.time.temporal.TemporalAccessor
+import java.util.*
 
 fun assembleHoliday(event: VEvent, state: String): Holiday = Holiday(id = 0, stateCode = assembleStateCode(state),
-        summary = event.summary.value.toLowerCase(),
+        summary = event.summary.value.lowercase(Locale.getDefault()),
         start = LocalDateTime.ofInstant(event.dateStart.value.toInstant(), ZoneOffset.UTC).toLocalDate(),
         end = LocalDateTime.ofInstant(event.dateEnd.value.toInstant(), ZoneOffset.UTC).toLocalDate(),
         year = event.dateStart.value.rawComponents.year,
