@@ -2,9 +2,9 @@ package de.paulbrejla.holidays.rest
 
 import de.paulbrejla.holidays.domain.Holiday
 import de.paulbrejla.holidays.domain.State
-import org.junit.Test
+import org.junit.jupiter.api.Test
 
-import org.junit.Assert.*
+import org.junit.jupiter.api.Assertions.*
 import java.time.LocalDate
 
 class AssemblerKtTest {
@@ -19,6 +19,6 @@ class AssemblerKtTest {
         val holidayDto = assembleHolidayDto(holiday)
 
         // Then
-        assertNotNull(holiday)
+        assertNotNull(holidayDto)
     }
 }

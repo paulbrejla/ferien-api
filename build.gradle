@@ -1,7 +1,7 @@
 buildscript {
 	ext {
-		kotlinVersion = '1.4.0'
-		springBootVersion = '2.3.3.RELEASE'
+		kotlinVersion = '1.7.10'
+		springBootVersion = '2.7.3'
 	}
 	repositories {
 		mavenCentral()
@@ -35,25 +35,30 @@ repositories {
 	mavenCentral()
 }
 
+test {
+	useJUnitPlatform()
+}
+
+
 dependencies {
-	compile("org.springframework.boot:spring-boot-starter-web:${springBootVersion}")
-	compile("org.springframework.boot:spring-boot-starter-jetty:${springBootVersion}")
-	compile("org.springframework.boot:spring-boot-starter-thymeleaf:${springBootVersion}")
-	compile("org.jetbrains.kotlin:kotlin-stdlib-jdk8:${kotlinVersion}")
-	compile("org.jetbrains.kotlin:kotlin-reflect:${kotlinVersion}")
-	compile 'net.sf.biweekly:biweekly:0.6.1'
-	compile group: 'commons-io', name: 'commons-io', version: '2.4'
-	compile("org.springframework.boot:spring-boot-starter-data-jpa:${springBootVersion}")
-	compile("com.h2database:h2:1.4.200")
-	compile group: 'org.hibernate', name: 'hibernate-java8', version: '5.1.0.Final'
-	compile("org.springframework.boot:spring-boot-devtools:${springBootVersion}")
-	compile("io.springfox:springfox-boot-starter:3.0.0")
-	compile("io.springfox:springfox-swagger-ui:2.9.2")
+	implementation("org.springframework.boot:spring-boot-starter-web:${springBootVersion}")
+	implementation("org.springframework.boot:spring-boot-starter-jetty:${springBootVersion}")
+	implementation("org.springframework.boot:spring-boot-starter-thymeleaf:${springBootVersion}")
+	implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8:${kotlinVersion}")
+	implementation("org.jetbrains.kotlin:kotlin-reflect:${kotlinVersion}")
+	implementation 'net.sf.biweekly:biweekly:0.6.1'
+	implementation group: 'commons-io', name: 'commons-io', version: '2.4'
+	implementation("org.springframework.boot:spring-boot-starter-data-jpa:${springBootVersion}")
+	implementation("com.h2database:h2:1.4.200")
+	implementation group: 'org.hibernate', name: 'hibernate-java8', version: '5.1.0.Final'
+	implementation("org.springframework.boot:spring-boot-devtools:${springBootVersion}")
+	implementation("io.springfox:springfox-boot-starter:3.0.0")
+	implementation("io.springfox:springfox-swagger-ui:2.9.2")
 
 	// Foundation
-	compile 'org.webjars:foundation:6.3.1'
+	implementation('org.webjars:foundation:6.3.1')
 
-	testCompile("org.springframework.boot:spring-boot-starter-test:${springBootVersion}")
+	testImplementation("org.springframework.boot:spring-boot-starter-test:${springBootVersion}")
 }
 
 noArg {
