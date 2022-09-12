@@ -1,4 +1,4 @@
-FROM openjdk:8-alpine
+FROM openjdk:11-alpine
 
 ENV APP_HOME /usr/src/app
 ENV APP_NAME holidays-api
