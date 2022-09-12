@@ -11,7 +11,7 @@ spring:
 server:
   port: 80
 loader:
-  source: ${LOADER_SOURCE}
-  remoteURL: ${LOADER_REMOTE_URL}
-  branch: ${LOADER_BRANCH}
-  filePath: ${LOADER_FILE_PATH}
+  source: filesystem
+  remoteURL:
+  branch: master
+  filePath:

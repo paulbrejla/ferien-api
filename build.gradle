@@ -46,20 +46,21 @@ dependencies {
 	implementation("org.springframework.boot:spring-boot-starter-thymeleaf:${springBootVersion}")
 	implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8:${kotlinVersion}")
 	implementation("org.jetbrains.kotlin:kotlin-reflect:${kotlinVersion}")
-	implementation 'net.sf.biweekly:biweekly:0.6.1'
+	implementation 'net.sf.biweekly:biweekly:0.6.6'
 	implementation group: 'commons-io', name: 'commons-io', version: '2.4'
 	implementation("org.springframework.boot:spring-boot-starter-data-jpa:${springBootVersion}")
 	implementation("com.h2database:h2:1.4.200")
 	implementation group: 'org.hibernate', name: 'hibernate-java8', version: '5.1.0.Final'
 	implementation("org.springframework.boot:spring-boot-devtools:${springBootVersion}")
 	implementation("io.springfox:springfox-boot-starter:3.0.0")
-	implementation("io.springfox:springfox-swagger-ui:2.9.2")
+	implementation('io.springfox:springfox-swagger-ui:3.0.0')
+	implementation("org.eclipse.jgit:org.eclipse.jgit:6.3.0.202209071007-r")
 
 	// Foundation
-	implementation('org.webjars:foundation:6.3.1')
+	implementation('org.webjars:foundation:6.4.3')
 
 	testImplementation("org.springframework.boot:spring-boot-starter-test:${springBootVersion}")
-    testImplementation 'org.junit.jupiter:junit-jupiter:5.8.1'
+    testImplementation 'org.junit.jupiter:junit-jupiter:5.9.0'
 }
 
 noArg {

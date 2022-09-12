@@ -48,7 +48,16 @@ git clone https://github.com/paulbrejla/ferien-api.git
    e.g. ferien_Bremen.ics
    ```
 
-3. Run 
+ 3. Configure environment variables to load _.ics_ files from the classpath or from a git repo
+
+| Property  | filesystem (classpath) | git                                                         |
+|-----------|------------------------|-------------------------------------------------------------|
+| source    | `filesystem`           | `git`                                                         |
+| remoteURL | Not needed             | Git URL e.g. https://github.com/paulbrejla/ferien-api.git   |
+| branch    | Not needed             | Branch e.g. `master`                                          |
+| filePath  | Not needed             | Path to look up ics files e.g. `src/test/resources/holidays/` |
+
+4. Run 
 ```sh
 ./gradlew bootRun
 ```
