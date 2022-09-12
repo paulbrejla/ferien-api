@@ -10,7 +10,6 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc
 
 @SpringBootApplication
 @EnableScheduling
-@EnableWebMvc
 @EnableConfigurationProperties(LoaderProperties::class)
 class HolidaysApiApplication
 
