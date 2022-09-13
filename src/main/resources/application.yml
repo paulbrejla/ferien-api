@@ -15,3 +15,4 @@ loader:
   remoteURL: ${LOADER_REMOTE_URL}
   branch: ${LOADER_BRANCH}
   filePath: ${LOADER_FILE_PATH}
+  authToken: ${LOADER_AUTH_TOKEN}

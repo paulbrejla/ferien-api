@@ -11,5 +11,6 @@ data class LoaderProperties(
     var source: String,
     var remoteURL: String,
     var branch: String,
-    var filePath: String
+    var filePath: String,
+    var authToken: String? = null
 )

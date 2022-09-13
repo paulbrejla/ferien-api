@@ -33,7 +33,7 @@ class HolidayServiceImpl(val calendarLoader: CalendarLoader,
         return holidayRepository.findAllByStateCode(forState).map { assembleHolidayDto(it) }
     }
 
-    @Scheduled(fixedRate = 900000, initialDelay = 15000)
+    @Scheduled(fixedRate = 1500000, initialDelay = 5000)
     override fun loadHolidays() {
         calendarLoader.loadCalendarFiles().forEach { (state, calendars) ->
             calendars.forEach {

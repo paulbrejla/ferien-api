@@ -1,15 +1,9 @@
 package de.paulbrejla.holidays.application
 
-import biweekly.ICalendar
-import biweekly.component.ICalComponent
 import biweekly.component.VEvent
-import biweekly.property.DateStart
-import biweekly.property.DateTimeStamp
-import biweekly.util.ICalDate
 import de.paulbrejla.holidays.domain.Holiday
 import de.paulbrejla.holidays.domain.State
 import java.time.*
-import java.time.temporal.TemporalAccessor
 import java.util.*
 
 fun assembleHoliday(event: VEvent, state: String): Holiday = Holiday(id = 0, stateCode = assembleStateCode(state),

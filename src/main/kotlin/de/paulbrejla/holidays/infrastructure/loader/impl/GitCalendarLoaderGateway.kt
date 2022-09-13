@@ -8,10 +8,12 @@ import de.paulbrejla.holidays.infrastructure.loader.api.CalendarLoader
 import org.eclipse.jgit.api.Git
 import org.eclipse.jgit.internal.storage.dfs.DfsRepositoryDescription
 import org.eclipse.jgit.internal.storage.dfs.InMemoryRepository
+import org.eclipse.jgit.revwalk.DepthWalk
 import org.eclipse.jgit.revwalk.RevCommit
 import org.eclipse.jgit.revwalk.RevTree
 import org.eclipse.jgit.revwalk.RevWalk
 import org.eclipse.jgit.transport.RefSpec
+import org.eclipse.jgit.transport.UsernamePasswordCredentialsProvider
 import org.eclipse.jgit.treewalk.TreeWalk
 import org.eclipse.jgit.treewalk.filter.PathFilter
 import org.slf4j.Logger
@@ -29,7 +31,11 @@ class GitCalendarLoaderGateway(val loaderProperties: LoaderProperties) : Calenda
     private val refSpec: String = "+refs/heads/*:refs/heads/*"
 
     override fun loadCalendarFiles(): List<CalendarDto> {
-        return readFromGit().map { CalendarDto(assembleStateFromFileName(it.first), Biweekly.parse(it.second).all()) }
+        return readFromGit().map {
+            CalendarDto(assembleStateFromFileName(it.first), Biweekly.parse(it.second).all()).also { cal ->
+                logger.info("Imported ${cal.calendars.size} entries for ${cal.state}")
+            }
+        }
     }
 
     @PostConstruct
@@ -43,7 +49,11 @@ class GitCalendarLoaderGateway(val loaderProperties: LoaderProperties) : Calenda
         val git = Git(repo)
         git.fetch()
             .setRemote(loaderProperties.remoteURL)
-            .setRefSpecs(RefSpec(refSpec))
+            .setRefSpecs(RefSpec(refSpec)).also { fc ->
+                loaderProperties.authToken?.let {
+                    fc.setCredentialsProvider(UsernamePasswordCredentialsProvider(loaderProperties.authToken, ""))
+                }
+            }
             .call()
 
         repo.objectDatabase
@@ -58,7 +68,6 @@ class GitCalendarLoaderGateway(val loaderProperties: LoaderProperties) : Calenda
     private fun assembleLatestCommit(repo: InMemoryRepository, branch: String): RevCommit {
         val lastCommitId = repo.resolve("refs/heads/$branch")
         val revWalk = RevWalk(repo)
-
         return revWalk.parseCommit(lastCommitId)
     }
 
@@ -66,17 +75,18 @@ class GitCalendarLoaderGateway(val loaderProperties: LoaderProperties) : Calenda
         treeWalk: TreeWalk,
         repo: InMemoryRepository
     ): List<Pair<String, String>> {
-        var index = 0
         val calendarFiles = mutableListOf<Pair<String, String>>()
         while (treeWalk.next()) {
-            val loader = repo.open(treeWalk.getObjectId(index))
+            try {
+                val loader = repo.open(treeWalk.getObjectId(0))
 
-            val stream = ByteArrayOutputStream()
-            loader.copyTo(stream)
-            val calendarFileWithFilename = Pair(treeWalk.pathString.substringAfterLast("/"), stream.toString())
-            calendarFiles.add(calendarFileWithFilename)
-
-            index++
+                val stream = ByteArrayOutputStream()
+                loader.copyTo(stream)
+                val calendarFileWithFilename = Pair(treeWalk.pathString.substringAfterLast("/"), stream.toString())
+                calendarFiles.add(calendarFileWithFilename)
+            } catch (e: Exception) {
+                logger.error("Error extracting objec from git: $e")
+            }
         }
 
         return calendarFiles
