@@ -16,7 +16,7 @@ fun assembleHoliday(event: VEvent, state: String): Holiday = Holiday(id = 0, sta
 fun assembleSlug(startDate: Int, summary: String, stateCode: State): String = "${summary.toLowerCase()}-$startDate-$stateCode"
 
 fun assembleStateCode(state: String): State = when (state) {
-    "baden-wuerttemberg", "Baden-Wuerttemberg" -> State.BW
+    "baden-wuerttemberg", "Baden-Wuerttemberg", "baden-württemberg" -> State.BW
     "bayern", "Bayern" -> State.BY
     "berlin", "Berlin" -> State.BE
     "brandenburg", "Brandenburg" -> State.BB
@@ -31,6 +31,6 @@ fun assembleStateCode(state: String): State = when (state) {
     "sachsen", "Sachsen" -> State.SN
     "sachsen-anhalt", "Sachsen-Anhalt" -> State.ST
     "schleswig-holstein", "Schleswig-Holstein" -> State.SH
-    "thueringen", "Thueringen" -> State.TH
+    "thueringen", "Thueringen", "thüringen" -> State.TH
     else -> throw Exception("Code for state '$state' not found.")
 }
