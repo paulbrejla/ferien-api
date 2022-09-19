@@ -6,14 +6,17 @@ import de.paulbrejla.holidays.domain.State
 import java.time.*
 import java.util.*
 
-fun assembleHoliday(event: VEvent, state: String): Holiday = Holiday(id = 0, stateCode = assembleStateCode(state),
-        summary = event.summary.value.lowercase(Locale.getDefault()),
-        start = LocalDateTime.ofInstant(event.dateStart.value.toInstant(), ZoneOffset.UTC).toLocalDate(),
-        end = LocalDateTime.ofInstant(event.dateEnd.value.toInstant(), ZoneOffset.UTC).toLocalDate(),
-        year = event.dateStart.value.rawComponents.year,
-        slug = assembleSlug(event.dateStart.value.rawComponents.year, event.summary.value, assembleStateCode(state)))
+fun assembleHoliday(event: VEvent, state: String): Holiday = Holiday(
+    id = 0, stateCode = assembleStateCode(state),
+    summary = event.summary.value.lowercase(Locale.getDefault()),
+    start = LocalDateTime.ofInstant(event.dateStart.value.toInstant(), ZoneId.of("CET")).toLocalDate(),
+    end = LocalDateTime.ofInstant(event.dateEnd.value.toInstant(), ZoneId.of("CET")).toLocalDate(),
+    year = event.dateStart.value.rawComponents.year,
+    slug = assembleSlug(event.dateStart.value.rawComponents.year, event.summary.value, assembleStateCode(state))
+)
 
-fun assembleSlug(startDate: Int, summary: String, stateCode: State): String = "${summary.toLowerCase()}-$startDate-$stateCode"
+fun assembleSlug(startDate: Int, summary: String, stateCode: State): String =
+    "${summary.toLowerCase()}-$startDate-$stateCode"
 
 fun assembleStateCode(state: String): State = when (state) {
     "baden-wuerttemberg", "Baden-Wuerttemberg", "baden-württemberg" -> State.BW
