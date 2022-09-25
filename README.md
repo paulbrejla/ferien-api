@@ -20,9 +20,6 @@ This is where the code for <a href="https://ferien-api.de">ferien-api.de</a> liv
 
 
 <!-- ABOUT THE PROJECT -->
-## About
-
-![screenshot](product.png "ferien-api.de")
 
 <!-- BUILT WITH -->
 ### Built With
@@ -79,8 +76,15 @@ docker tag holidays-api:latest remote-repo/holidays-api:latest
 docker push remote-repo/holidays-api:latest 
 ```
 
+## FAQ
+
+### Some dates are wrong - can you fix them?
+The source ics files are here: https://github.com/paulbrejla/ferien-api-data. 
+To change a holiday date, open the ics file for the state and year and find the holiday entry. Change the entry and create a pull
+request against _main_.
+
 <!-- LICENSE -->
-### License
+## License
 Distributed under the MIT License. See LICENSE for more information.
 
 <!-- CONTRIBUTING -->
