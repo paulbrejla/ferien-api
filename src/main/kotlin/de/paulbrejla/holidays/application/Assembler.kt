@@ -1,28 +1,25 @@
 package de.paulbrejla.holidays.application
 
-import biweekly.ICalendar
-import biweekly.component.ICalComponent
 import biweekly.component.VEvent
-import biweekly.property.DateStart
-import biweekly.property.DateTimeStamp
-import biweekly.util.ICalDate
 import de.paulbrejla.holidays.domain.Holiday
 import de.paulbrejla.holidays.domain.State
 import java.time.*
-import java.time.temporal.TemporalAccessor
 import java.util.*
 
-fun assembleHoliday(event: VEvent, state: String): Holiday = Holiday(id = 0, stateCode = assembleStateCode(state),
-        summary = event.summary.value.lowercase(Locale.getDefault()),
-        start = LocalDateTime.ofInstant(event.dateStart.value.toInstant(), ZoneOffset.UTC).toLocalDate(),
-        end = LocalDateTime.ofInstant(event.dateEnd.value.toInstant(), ZoneOffset.UTC).toLocalDate(),
-        year = event.dateStart.value.rawComponents.year,
-        slug = assembleSlug(event.dateStart.value.rawComponents.year, event.summary.value, assembleStateCode(state)))
+fun assembleHoliday(event: VEvent, state: String): Holiday = Holiday(
+    id = 0, stateCode = assembleStateCode(state),
+    summary = event.summary.value.lowercase(Locale.getDefault()),
+    start = LocalDateTime.ofInstant(event.dateStart.value.toInstant(), ZoneId.of("CET")).toLocalDate(),
+    end = LocalDateTime.ofInstant(event.dateEnd.value.toInstant(), ZoneId.of("CET")).toLocalDate(),
+    year = event.dateStart.value.rawComponents.year,
+    slug = assembleSlug(event.dateStart.value.rawComponents.year, event.summary.value, assembleStateCode(state))
+)
 
-fun assembleSlug(startDate: Int, summary: String, stateCode: State): String = "${summary.toLowerCase()}-$startDate-$stateCode"
+fun assembleSlug(startDate: Int, summary: String, stateCode: State): String =
+    "${summary.toLowerCase()}-$startDate-$stateCode"
 
 fun assembleStateCode(state: String): State = when (state) {
-    "baden-wuerttemberg", "Baden-Wuerttemberg" -> State.BW
+    "baden-wuerttemberg", "Baden-Wuerttemberg", "baden-württemberg" -> State.BW
     "bayern", "Bayern" -> State.BY
     "berlin", "Berlin" -> State.BE
     "brandenburg", "Brandenburg" -> State.BB
@@ -37,6 +34,6 @@ fun assembleStateCode(state: String): State = when (state) {
     "sachsen", "Sachsen" -> State.SN
     "sachsen-anhalt", "Sachsen-Anhalt" -> State.ST
     "schleswig-holstein", "Schleswig-Holstein" -> State.SH
-    "thueringen", "Thueringen" -> State.TH
+    "thueringen", "Thueringen", "thüringen" -> State.TH
     else -> throw Exception("Code for state '$state' not found.")
 }
