@@ -83,6 +83,16 @@ The source ics files are here: https://github.com/paulbrejla/ferien-api-data.
 To change a holiday date, open the ics file for the state and year and find the holiday entry. Change the entry and create a pull
 request against _main_.
 
+### Dates are missing - can you add them?
+The source ics files are here: https://github.com/paulbrejla/ferien-api-data. 
+To add a holidays for a given state and year, provide an ics file and create a PR against _main_.
+
+### Data is unreliable - can you fix data issues?
+The source ics files are here: https://github.com/paulbrejla/ferien-api-data. 
+To change a holiday date, open the ics file for the state and year and find the holiday entry. Change the entry and create a pull
+request against _main_.
+
+
 <!-- LICENSE -->
 ## License
 Distributed under the MIT License. See LICENSE for more information.
