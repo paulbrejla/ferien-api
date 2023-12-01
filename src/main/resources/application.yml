@@ -9,7 +9,7 @@ spring:
       enabled: false
       path: /h2-console
 server:
-  port: 80
+  port: ${APPLICATION_PORT:80}
 loader:
   source: ${LOADER_SOURCE}
   remoteURL: ${LOADER_REMOTE_URL}
