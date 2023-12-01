@@ -10,6 +10,8 @@ spring:
       path: /h2-console
 server:
   port: ${SERVER_PORT:80}
+  error:
+    include-stacktrace: never
 loader:
   source: ${LOADER_SOURCE}
   remoteURL: ${LOADER_REMOTE_URL}
