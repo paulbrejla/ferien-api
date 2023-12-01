@@ -9,9 +9,13 @@ spring:
       enabled: false
       path: /h2-console
 server:
-  port: 80
+  port: ${SERVER_PORT:80}
 loader:
   source: filesystem
   remoteURL:
   branch: master
   filePath:
+rateLimit:
+  globalBucket:
+    id: ${RATE_LIMIT_GLOBAL_BUCKET_ID:global}
+    capacity: ${RATE_LIMIT_GLOBAL_BUCKET_CAPACITY:10}
