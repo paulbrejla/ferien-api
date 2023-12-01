@@ -70,7 +70,6 @@ internal class HolidayWsV1ImplTest {
         // Then
         assertNotNull(holidays)
         assertEquals(expectedSize, holidays.size)
-
     }
 
 }
