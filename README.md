@@ -78,6 +78,9 @@ docker push remote-repo/holidays-api:latest
 
 ## FAQ
 
+### I am running into rate limits when calling the API - can you fix this?
+As the API is heavily abused, aggressive rate limiting is in place. If you need higher rate limits, you need to self-host it.
+
 ### Some dates are wrong - can you fix them?
 The source ics files are here: https://github.com/paulbrejla/ferien-api-data. 
 To change a holiday date, open the ics file for the state and year and find the holiday entry. Change the entry and create a pull
