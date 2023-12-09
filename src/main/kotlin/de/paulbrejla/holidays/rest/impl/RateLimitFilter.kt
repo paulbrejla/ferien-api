@@ -10,6 +10,7 @@ import javax.servlet.FilterChain
 import javax.servlet.ServletException
 import javax.servlet.ServletRequest
 import javax.servlet.ServletResponse
+import javax.servlet.http.HttpServletRequest
 import javax.servlet.http.HttpServletResponse
 
 @Component
@@ -22,7 +23,10 @@ class RateLimitFilter(val rateLimitService: RateLimitService) : Filter {
 
 
     override fun doFilter(request: ServletRequest?, response: ServletResponse?, chain: FilterChain?) {
-        if (!this.shouldFulfillRequestWithinRateLimit(globalBucketId)) { // Maybe add additional x-rate-limit headers later.
+        if ((request as HttpServletRequest).servletPath.contains("/api") && !this.shouldFulfillRequestWithinRateLimit(
+                globalBucketId
+            )
+        ) { // Maybe add additional x-rate-limit headers later.
             (response as HttpServletResponse).apply {
                 this.status = HttpStatus.TOO_MANY_REQUESTS.value()
                 this.addHeader("X-RateLimit-Limit", globalBucketCapacity.toString())
